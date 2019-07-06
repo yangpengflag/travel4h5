@@ -2,11 +2,11 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom">
-        <img class="item-img" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg"/>
+      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+        <img class="item-img" :src="item.imgUrl"/>
         <div class="item-info">
-          <p class="item-title">故宫</p>
-          <p class="item-desc">世界五大宫之首，穿越与您近在咫尺</p>
+          <p class="item-title">{{item.title}}</p>
+          <p class="item-desc">{{item.desc}}</p>
           <button class="item-button">查看详情</button>
         </div>
       </li>
@@ -16,7 +16,27 @@
 
 <script>
 export default {
-  name: 'HomeRecommend'
+  name: 'HomeRecommend',
+  data () {
+    return {
+      recommendList: [{
+        id: '001',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1508/89/895a1b7add84f23faca053ce9e3153db.water.jpg_200x200_99ae30ee.jpg',
+        title: '北京欢乐谷',
+        desc: '亚洲唯一飞行式过山车等你来挑战'
+      }, {
+        id: '002',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg',
+        title: '故宫',
+        desc: '世界五大宫之首，穿越与您近在咫尺'
+      }, {
+        id: '003',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_200x200_2458ffb2.jpg',
+        title: '八达岭长城',
+        desc: '不到长城非好汉'
+      }]
+    }
+  }
 }
 </script>
 
